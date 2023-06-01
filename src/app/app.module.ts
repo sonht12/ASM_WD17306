@@ -15,7 +15,8 @@ import { UserEditComponent } from './components/Admin/user/user-edit/user-edit.c
 import { HomePageComponent } from './components/Client/home-page/home-page.component';
 import { ProductPageComponent } from './components/Client/product-page/product-page.component';
 import { ProductDetailComponent } from './components/Client/product-detail/product-detail.component';
-
+import { SignupComponent } from './components/Client/signup/signup.component';
+import { SigninComponent } from './components/Client/signin/signin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProductDetailComponent } from './components/Client/product-detail/produ
     HomePageComponent,
     ProductPageComponent,
     ProductDetailComponent,
-
+    SignupComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,
