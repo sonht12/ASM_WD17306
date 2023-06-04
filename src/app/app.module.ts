@@ -17,6 +17,9 @@ import { ProductPageComponent } from './components/Client/product-page/product-p
 import { ProductDetailComponent } from './components/Client/product-detail/product-detail.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
 import { SigninComponent } from './components/Client/signin/signin.component';
+import { TinTucComponent } from './components/Client/tin-tuc/tin-tuc.component';
+import { HighlightComponent } from './components/Client/highlight/highlight.component';
+
 
 @NgModule({
   declarations: [
@@ -35,10 +38,17 @@ import { SigninComponent } from './components/Client/signin/signin.component';
     ProductDetailComponent,
     SignupComponent,
     SigninComponent,
+    TinTucComponent,
+    HighlightComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

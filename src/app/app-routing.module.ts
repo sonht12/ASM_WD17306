@@ -14,9 +14,13 @@ import { UserAddComponent } from './components/Admin/user/user-add/user-add.comp
 import { UserEditComponent } from './components/Admin/user/user-edit/user-edit.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
 import { SigninComponent } from './components/Client/signin/signin.component';
+import { TinTucComponent } from './components/Client/tin-tuc/tin-tuc.component';
+import { HighlightComponent } from './components/Client/highlight/highlight.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
+  { path: 'highlight', component: HighlightComponent },
+  { path: 'tintuc', component: TinTucComponent },
   { path: 'product', component: ProductPageComponent },
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'signup', component: SignupComponent },
