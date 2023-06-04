@@ -1,60 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>Log In</title>
-</head>
-
-<body>
-  <!-- page -->
-  <main
-    class="mx-auto flex min-h-screen w-full items-center justify-center text-slate-400 bg-[url('https://images4.alphacoders.com/600/600528.png')] bg-cover bg-center">
-    <!-- component -->
-    <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
-      <div class="text-center text-4xl font-medium italic text-black">Đăng Ký</div>
-
+<main class="mx-auto flex min-h-screen w-full items-center justify-center text-slate-400 bg-[url('https://images4.alphacoders.com/600/600528.png')] bg-cover bg-center">
+  <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
+    <div class="text-center text-4xl font-medium italic text-black">Đăng Ký</div>
+    
+    <form [formGroup]="formSignup" (ngSubmit)="onHandleSubmit()">
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="text" placeholder="Email"
-          class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+        <input type="text" placeholder="Email" formControlName="email"
+      class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+      <div
+        *ngIf="
+          formSignup.get('email')?.hasError('required') &&
+          (formSignup.get('email')?.touched || formSignup.get('email')?.dirty)
+        "
+      >
+        Email is Required
+      </div>
+      <div
+        *ngIf="
+          formSignup.get('email')?.hasError('email') &&
+          (formSignup.get('email')?.touched || formSignup.get('email')?.dirty)
+        "
+      >
+        Invalid email
+      </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="text" placeholder="Name"
-          class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+        <input type="password" placeholder="Password" formControlName="password"   class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"  />
+      <div
+        *ngIf="
+          formSignup.get('password')?.hasError('required') &&
+          (formSignup.get('password')?.touched || formSignup.get('email')?.dirty)
+        "
+      ></div>
       </div>
-
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" placeholder="Password"
-          class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+        <input
+        type="password"
+        placeholder="Confirm Password"
+        formControlName="confirmPassword"
+        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+      />
+      <div
+        *ngIf="
+          formSignup.hasError('misMatch') &&
+          (formSignup.get('confirmPassword')?.touched ||
+            formSignup.get('confirmPassword')?.dirty)
+        "
+      >
+        Password không trùng nhau
       </div>
-
-      <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" placeholder="Confirm Password"
-          class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
       </div>
+      
+      
+      <button   class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">Đăng ký</button>
+    </form>
 
-      <button class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
-      ĐĂNG KÝ
-      </button>
-      <button
-        class="px-4 py-2 border flex gap-2 border-slate-200 bg-white rounded-lg hover:border-slate-400 hover:text-gray-700 hover:shadow transition duration-150 text-black">
-        <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy"
-          alt="google logo">
-        <span>Đăng ký bằng Google</span>
-      </button>
-      <!-- <a href="#" class="transform text-center font-semibold text-gray-500 duration-300 hover:text-gray-300">FORGOT
-        PASSWORD?</a>
+  </section>
 
-      <p class="text-center text-lg">
-        No account?
-        <a href="#" class="font-medium text-indigo-500 underline-offset-4 hover:underline">Create One</a>
-      </p> -->
-    </section>
-  </main>
-</body>
+</main>
 
-</html>
