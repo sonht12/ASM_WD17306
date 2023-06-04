@@ -13,9 +13,7 @@ import { ListUserComponent } from './components/Admin/user/list-user/list-user.c
 import { UserAddComponent } from './components/Admin/user/user-add/user-add.component';
 import { UserEditComponent } from './components/Admin/user/user-edit/user-edit.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
-import { SigninComponent } from './components/Client/signin/signin.component';
-import { FormsModule } from '@angular/forms';
-
+import { SigninComponent } from './components/Client/signin/signin.component';t/login-refs-AA-7ular/forms';ayoutAdminCompo./components/Admin/layout/layout-admin/layout-admin.component';mprom/components/Admin/News/news/news.component';mmentComponentromnts/Admin/Comment/comment/comment.component';opers
 const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'product', component: ProductPageComponent },
