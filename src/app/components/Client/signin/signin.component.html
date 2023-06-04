@@ -16,22 +16,20 @@
     <!-- component -->
     <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
       <div class="text-center text-4xl font-medium italic text-black">Đăng nhập</div>
-      <form (ngSubmit)="login()" #loginForm="ngForm">
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Email"
+        <input type="text" placeholder="Tên đăng nhập hoặc email"
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Mật khẩu"
+        <input type="password" placeholder="Mật khẩu"
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
       </div>
 
-      <button type="submit" class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
+      <button class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
        Đăng nhập
       </button>
-    </form>
       <button
         class="px-4 py-2 border flex gap-2 border-slate-200 bg-white rounded-lg hover:border-slate-400 hover:text-gray-700 hover:shadow transition duration-150 text-black">
         <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy"
