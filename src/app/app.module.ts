@@ -17,9 +17,7 @@ import { ProductPageComponent } from './components/Client/product-page/product-p
 import { ProductDetailComponent } from './components/Client/product-detail/product-detail.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
 import { SigninComponent } from './components/Client/signin/signin.component';
-import { NewsComponent } from './components/Admin/News/news/news.component';
-import { LayoutAdminComponent } from './components/Admin/layout/layout-admin/layout-admin.component';
-import { CommentComponent } from './components/Admin/Comment/comment/comment.component';
+
 
 @NgModule({
   declarations: [
@@ -37,10 +35,8 @@ import { CommentComponent } from './components/Admin/Comment/comment/comment.com
     ProductPageComponent,
     ProductDetailComponent,
     SignupComponent,
-    SigninComponent,
-    NewsComponent,
-    LayoutAdminComponent,
-    CommentComponent,
+    SigninComponent
+
   ],
   imports: [
     BrowserModule,
