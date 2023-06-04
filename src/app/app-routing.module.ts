@@ -14,6 +14,7 @@ import { UserAddComponent } from './components/Admin/user/user-add/user-add.comp
 import { UserEditComponent } from './components/Admin/user/user-edit/user-edit.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
 import { SigninComponent } from './components/Client/signin/signin.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },

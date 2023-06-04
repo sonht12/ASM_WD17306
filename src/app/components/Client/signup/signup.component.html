@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
-  <title>Log In</title>
+  <title>Log In </title>
 </head>
 
 <body>
@@ -16,30 +16,48 @@
     <!-- component -->
     <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
       <div class="text-center text-4xl font-medium italic text-black">Đăng Ký</div>
+      <!-- form dang ky -->
+      <form (ngSubmit)="onSubmit()" #Signup="ngForm">
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="text" placeholder="Email"
+        <input type="text" placeholder="Email" id="email" name="email" [(ngModel)]="email" required email #emailInput="ngModel" 
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error-message">
+            <span *ngIf="nameInput.errors?.['required']">Vui lòng nhập email.</span>
+            <span *ngIf="emailInput.errors?.['email']">Email không hợp lệ.</span>
+          </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="text" placeholder="Name"
+        <input type="text" placeholder="Name" id="name" name="name" [(ngModel)]="name"   required  minlength="2" #nameInput="ngModel"
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error-message">
+            <span *ngIf="nameInput.errors?.['required']">Vui lòng nhập tên.</span>
+            <span *ngIf="nameInput.errors?.['minlength']">Tên phải có ít nhất 2 ký tự.</span> 
+          </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" placeholder="Password"
+        <input type="password" placeholder="Password" id="password" name="password" minlength="6" required="" [(ngModel)]="password" #passwordInput="ngModel"
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+            <span *ngIf="nameInput.errors?.['required']">Vui lòng nhập mật khẩu.</span>
+            <span *ngIf="nameInput.errors?.['minlength']">Mật khẩu phải có 6 chữ số.</span>
+          </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" placeholder="Confirm Password"
+        <input type="password" placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword"
+          #confirmPasswordInput="ngModel"  required minlength="6" 
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <!--     -->
       </div>
 
-      <button class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
+      <button type="submit" [disabled]="Signup.invalid"
+       class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
       ĐĂNG KÝ
       </button>
+    </form>
       <button
         class="px-4 py-2 border flex gap-2 border-slate-200 bg-white rounded-lg hover:border-slate-400 hover:text-gray-700 hover:shadow transition duration-150 text-black">
         <img class="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy"
