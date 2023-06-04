@@ -1,11 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-// import { CompareValidatorDirective } from './compare-validator.directive';
-import { ReactiveFormsModule } from '@angular/forms';
-
-
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +17,9 @@ import { ProductPageComponent } from './components/Client/product-page/product-p
 import { ProductDetailComponent } from './components/Client/product-detail/product-detail.component';
 import { SignupComponent } from './components/Client/signup/signup.component';
 import { SigninComponent } from './components/Client/signin/signin.component';
+import { TinTucComponent } from './components/Client/tin-tuc/tin-tuc.component';
+import { HighlightComponent } from './components/Client/highlight/highlight.component';
+import { PageComponent } from './components/Client/page/page.component';
 
 
 @NgModule({
@@ -41,15 +38,19 @@ import { SigninComponent } from './components/Client/signin/signin.component';
     ProductPageComponent,
     ProductDetailComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    TinTucComponent,
+    HighlightComponent,
+    PageComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    ReactiveFormsModule
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
