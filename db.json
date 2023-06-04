@@ -22,6 +22,12 @@
       "email": "son01679580054@gmail.com",
       "name": "son111",
       "password": "111111"
+    },
+    {
+      "email": "ssds@gmail.com",
+      "password": "111111",
+      "confirmPassword": "111111",
+      "id": 2
     }
   ]
 }
