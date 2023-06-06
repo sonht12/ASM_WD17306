@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import mongoost from "mongoose";
 
 const ChemeCategory = new mongoose.Schema(
   {
