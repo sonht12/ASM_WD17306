@@ -10,6 +10,9 @@ import { SigninComponent } from './components/Client/signin/signin.component';
 import { TinTucComponent } from './components/Client/tin-tuc/tin-tuc.component';
 import { HighlightComponent } from './components/Client/highlight/highlight.component';
 import { PageComponent } from './components/Client/page/page.component';
+import { LayoutAdminComponent } from './components/Admin/layout-admin/layout-admin/layout-admin.component';
+import { CommentComponent } from './components/Admin/comment/comment/comment.component';
+import { NewsComponent } from './components/Admin/news/news/news.component';
 
 const routes: Routes = [
   { path: '', children:[
@@ -21,18 +24,16 @@ const routes: Routes = [
   ]
 
 },
+ 
+  {path: 'admin',component: LayoutAdminComponent, children: [
+    {path: 'bl',component: CommentComponent},
+    {path: 'new',component: NewsComponent},
+    {path: 'user', component: ListUserComponent},
+    {path: 'user/add', component: UserAddComponent},
+    {path: 'user/edit', component: UserEditComponent},
+  ]},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
-  {
-    path: 'admin', children:[
-      // product
-      // user
-      {path: 'user', component: ListUserComponent},
-      {path: 'user/add', component: UserAddComponent},
-      {path: 'user/edit', component: UserEditComponent},
-
-    ]
-  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
