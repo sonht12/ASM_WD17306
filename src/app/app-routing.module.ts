@@ -24,9 +24,9 @@ const routes: Routes = [
   ]
 
 },
- 
+
   {path: 'admin',component: LayoutAdminComponent, children: [
-    {path: 'bl',component: CommentComponent},
+    {path: '',component: CommentComponent},
     {path: 'new',component: NewsComponent},
     {path: 'user', component: ListUserComponent},
     {path: 'user/add', component: UserAddComponent},
