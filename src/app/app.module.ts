@@ -19,6 +19,7 @@ import { NewsComponent } from './components/Admin/news/news/news.component';
 import { CommentComponent } from './components/Admin/comment/comment/comment.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { CommentComponent } from './components/Admin/comment/comment/comment.com
     LayoutAdminComponent,
     NewsComponent,
     CommentComponent
+    
   ],
   imports: [
     BrowserModule,
