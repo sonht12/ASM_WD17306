@@ -5,11 +5,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  API_URL: string = 'http://localhost:3000';
+  API_URL: string = 'http://localhost:8088/api';
 
   constructor(private http: HttpClient) { }
 
   signup(user: any): Observable<any> {
-    return this.http.post(`${this.API_URL}/users`, user);
+    return this.http.post(`${this.API_URL}/signup`, user);
+  }
+  signin(user: any): Observable<any> {
+    return this.http.post(`${this.API_URL}/signin`, user);
+  }
+  isAuthenticated(): any {
+    return JSON.parse(localStorage.getItem('credential')!) || {};
   }
 }

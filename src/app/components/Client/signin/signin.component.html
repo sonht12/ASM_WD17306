@@ -16,16 +16,38 @@
     <!-- component -->
     <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
       <div class="text-center text-4xl font-medium italic text-black">Đăng nhập</div>
-      <form (ngSubmit)="login()" #loginForm="ngForm">
+      <form [formGroup]="formSignin" (ngSubmit)="onHandleSubmit()">
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="email" id="email" name="email" [(ngModel)]="email" required placeholder="Email"
+        <input type="text" placeholder="Email" formControlName="email"
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <div
+            *ngIf="
+            formSignin.get('email')?.hasError('required') &&
+              (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
+            "
+          >
+            Email is Required
+          </div>
+          <div
+            *ngIf="
+            formSignin.get('email')?.hasError('email') &&
+              (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
+            "
+          >
+            Invalid email
+          </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" id="password" name="password" [(ngModel)]="password" required placeholder="Mật khẩu"
+        <input type="password" placeholder="Password" formControlName="password" 
           class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          <div
+          *ngIf="
+          formSignin.get('password')?.hasError('required') &&
+            (formSignin.get('password')?.touched || formSignin.get('email')?.dirty)
+          "
+        ></div>
       </div>
 
       <button type="submit" class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">

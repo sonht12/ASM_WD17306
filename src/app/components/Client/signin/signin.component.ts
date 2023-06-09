@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { LoginService } from 'src/app/services/login.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -8,20 +8,18 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class SigninComponent {
   
-  email: string = '';
-  password: string = '';
-  
+  formSignin = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required]]
+  },)
+  constructor(private fb: FormBuilder, private AuthService: AuthService) {
 
-  constructor(private LoginService: LoginService) { }
-  login(): void {
-    this.LoginService.getUserByEmail(this.email)
-      .subscribe((users: any) => {
-        const user = users.find((u: any) => u.email === this.email && u.password === this.password);
-        if (user) {
-          console.log('Đăng nhập thành công');
-        } else {
-          console.log('Email hoặc mật khẩu không đúng');
-        }
-      });
+  }
+  onHandleSubmit() {
+    if (this.formSignin.valid) {
+      this.AuthService.signin(this.formSignin.value).subscribe(data => {
+        localStorage.setItem('credential', JSON.stringify(data))
+      })
+    }
   }
 }
