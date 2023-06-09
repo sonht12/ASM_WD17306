@@ -17,6 +17,8 @@ import { PageComponent } from './components/Client/page/page.component';
 import { LayoutAdminComponent } from './components/Admin/layout-admin/layout-admin/layout-admin.component';
 import { NewsComponent } from './components/Admin/news/news/news.component';
 import { CommentComponent } from './components/Admin/comment/comment/comment.component';
+import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
+import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
 
 
 
@@ -34,7 +36,9 @@ import { CommentComponent } from './components/Admin/comment/comment/comment.com
     PageComponent,
     LayoutAdminComponent,
     NewsComponent,
-    CommentComponent
+    CommentComponent,
+    NewsAddComponent,
+    NewsUpdateComponent
     
   ],
   imports: [

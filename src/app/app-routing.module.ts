@@ -13,6 +13,8 @@ import { PageComponent } from './components/Client/page/page.component';
 import { LayoutAdminComponent } from './components/Admin/layout-admin/layout-admin/layout-admin.component';
 import { CommentComponent } from './components/Admin/comment/comment/comment.component';
 import { NewsComponent } from './components/Admin/news/news/news.component';
+import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
+import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
 
 const routes: Routes = [
   { path: '', children:[
@@ -26,11 +28,12 @@ const routes: Routes = [
 },
 
   {path: 'admin',component: LayoutAdminComponent, children: [
-    {path: '',component: CommentComponent},
-    {path: 'new',component: NewsComponent},
+    {path: '',component: NewsComponent},
     {path: 'user', component: ListUserComponent},
     {path: 'user/add', component: UserAddComponent},
     {path: 'user/edit', component: UserEditComponent},
+    {path: 'news/add', component: NewsAddComponent},
+    {path: 'news/edit/:id', component:NewsUpdateComponent}
   ]},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
