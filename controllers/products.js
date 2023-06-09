@@ -34,3 +34,46 @@ export const GetOne = async (req, res, next) => {
   }
 };
 
+export const Create = async (req, res, next) => {
+  try {
+    const { error } = Checkvalidate.validate(req.body);
+    if (error) {
+      return res.json({
+        error: error.details[0].message,
+      });
+    }
+    const data = await ProductChema.create(req.body);
+    console.log(data);
+    // await ChemeCategory.findByIdAndUpdate(data.categoryId, {
+    //   $addToSet: {
+    //     Product: data._id,
+    //   },
+    // });
+    return res.json({
+      message: "Thêm thanh công",
+      data: data,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+    });
+  }
+};
+
+export const Update = async (req, res, next) => {
+  try {
+    const data = await ProductChema.findByIdAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+    return res.json({
+      message: "Cập nhật thành công",
+      data: data,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+    });
+  }
+};
