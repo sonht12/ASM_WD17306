@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { IProduct } from 'src/app/interface/product';
+import { ProdutService } from 'src/app/services/produt.service';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -39,5 +40,15 @@ export class HomePageComponent implements OnInit {
       this.previousImageIndex = this.currentImageIndex;
       this.currentImageIndex = 0;
     }
+  }
+
+  //show bài viết
+  products!: IProduct[];
+  constructor(private abc:ProdutService){
+    this.abc.getProducts().subscribe(data=>{
+      this.products=data
+      console.log(this.products);
+      
+    })
   }
 }
