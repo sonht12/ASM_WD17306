@@ -15,4 +15,11 @@ export class ProdutService {
   getProduct(id:any): Observable<IProduct> {
     return this.http.get<IProduct>(`${this.API_URL}/product/` + id);
   }
+  addProduct(product: IProduct): Observable<IProduct> {
+    return this.http.post<IProduct>(`${this.API_URL}/product`, product);
+  }
+  updateProduct(product: IProduct): Observable<IProduct> {
+    return this.http.put<IProduct>(`${this.API_URL}/product/${product._id}/`, product);
+
+}
 }

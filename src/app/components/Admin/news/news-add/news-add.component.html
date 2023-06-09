@@ -1,0 +1,9 @@
+
+<form [formGroup]="productForm" (ngSubmit)="onHandSubmit()">
+  <input type="text" formControlName="name" placeholder="nhap ten">
+  <input type="text" formControlName="content" placeholder="nhap content">
+  <input type="text" formControlName="description" placeholder="nhap description">
+  <input type="text" formControlName="image" placeholder="nhap image">
+  <button type="submit" [disabled]="!productForm.valid">submit</button>
+</form>
+
