@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class SignupComponent {
   formSignup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
+    name: ['', [Validators.required, ]],
     password: ['', [Validators.required]],
     confirmPassword: ['']
   }, { validators: this.checkPassword })

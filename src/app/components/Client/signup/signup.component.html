@@ -3,6 +3,25 @@
     <div class="text-center text-4xl font-medium italic text-black">Đăng Ký</div>
     
     <form [formGroup]="formSignup" (ngSubmit)="onHandleSubmit()">
+      <!-- name -->
+      <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
+        <input type="text" placeholder="Name" formControlName="name"
+      class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+      <div
+        *ngIf="
+          formSignup.get('name')?.hasError('required')
+        "
+      >
+        name is Required
+      </div>
+      <div
+        *ngIf="
+          formSignup.get('email')?.hasError('email')
+        "
+      >
+      </div>
+      </div>
+      <!-- email -->
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
         <input type="text" placeholder="Email" formControlName="email"
       class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />

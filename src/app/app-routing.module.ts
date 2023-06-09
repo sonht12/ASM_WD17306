@@ -15,6 +15,7 @@ import { CommentComponent } from './components/Admin/comment/comment/comment.com
 import { NewsComponent } from './components/Admin/news/news/news.component';
 import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
 import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
+import { authGuard } from './services/auth.guard';
 
 const routes: Routes = [
   { path: '', children:[
@@ -24,10 +25,9 @@ const routes: Routes = [
       { path: 'tintuc', component: TinTucComponent },
     ]},
   ]
-
 },
 
-  {path: 'admin',component: LayoutAdminComponent, children: [
+  {path: 'admin',component: LayoutAdminComponent, canActivate:[authGuard], children: [
     {path: '',component: NewsComponent},
     {path: 'user', component: ListUserComponent},
     {path: 'user/add', component: UserAddComponent},
