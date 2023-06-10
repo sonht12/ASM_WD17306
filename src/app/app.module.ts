@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule} from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ import { NewsComponent } from './components/Admin/news/news/news.component';
 import { CommentComponent } from './components/Admin/comment/comment/comment.component';
 import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
 import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
-
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 
 @NgModule({
@@ -39,14 +39,16 @@ import { NewsUpdateComponent } from './components/Admin/news/news-update/news-up
     CommentComponent,
     NewsAddComponent,
     NewsUpdateComponent
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularEditorModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

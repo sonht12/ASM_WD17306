@@ -1,9 +1,41 @@
-<form (ngSubmit)="onHandleEdit()"[formGroup]="productForm">
-  <div class="form-group">
-    <input type="text" placeholder="Tên sản phẩm" formControlName="name" />
-    <input type="text" placeholder="Tên sản phẩm" formControlName="content" />
-    <input type="text" placeholder="Tên sản phẩm" formControlName="description" />
-    <input type="text" placeholder="Tên sản phẩm" formControlName="image" />
+
+<h1 class="text-3xl font-bold text-center mb-8 mt-[6%]">UPDATE NEWS</h1>
+
+<form (ngSubmit)="onHandleEdit()"[formGroup]="productForm" class="max-w-3xl mx-auto mt-[6%] h-auto p-8 border border-gray-300 rounded-md">
+  <div class="mb-8">
+    <label for="name" class="mb-2 text-lg font-medium text-gray-700">Tên:</label>
+    <input type="text" id="name" formControlName="name" placeholder="nhap ten" class="w-full px-4 py-2 border border-gray-300 rounded-md">
   </div>
-  <button type="submit">Submit</button>
+
+  <div class="mb-8">
+    <label for="content" class="mb-2 text-lg font-medium text-gray-700">Nội dung:</label>
+    <angular-editor [placeholder]="'Enter text here...'" id="content" formControlName="content" class="w-full px-4 py-2"></angular-editor>
+  </div>
+
+  <div class="mb-8">
+    <label for="description" class="mb-2 text-lg font-medium text-gray-700">Mô tả:</label>
+    <input type="text" id="description" formControlName="description" placeholder="nhap description" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+  </div>
+
+  <div class="mb-8">
+    <label for="image" class="mb-2 text-lg font-medium text-gray-700">Ảnh:</label>
+    <input type="text" id="image" formControlName="image" placeholder="nhap image" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+  </div>
+
+  <div class="mb-8">
+    <label for="date" class="mb-2 text-lg font-medium text-gray-700">Ngày Đăng:</label>
+    <input type="date" id="date" formControlName="date" [value]="productForm.value.date | date:'yyyy-MM-dd'" class="w-full px-4 py-2 border border-gray-300 rounded-md">
+  </div>
+
+  <div class="text-center">
+    <button type="submit" [disabled]="!productForm.valid" class="w-auto bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  rounded">submit</button>
+  </div>
 </form>
+
+
+
+
+
+
+
+
