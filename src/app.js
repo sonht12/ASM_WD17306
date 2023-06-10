@@ -17,7 +17,7 @@ app.use(cors());
 
 app.use("/api", router);
 app.use("/api", user);
-// app.use("/api", CategoryRoute);
+app.use("/api", CategoryRoute);
 app.use('/api', productRouter)
 app.use("/api", Highlight_Router);
 

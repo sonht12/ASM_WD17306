@@ -6,7 +6,8 @@ const Checkvalidate = joi.object({
   content: joi.string().required(),
   description: joi.string().required(),
   image: joi.string().required(),
-//   categoryId: joi.string(),
+  date: joi.date().required(),
+  categoryId: joi.string(),
 });
 export const GetAll = async (req, res, next) => {
   try {
@@ -44,11 +45,11 @@ export const Create = async (req, res, next) => {
     }
     const data = await ProductChema.create(req.body);
     console.log(data);
-    // await ChemeCategory.findByIdAndUpdate(data.categoryId, {
-    //   $addToSet: {
-    //     Product: data._id,
-    //   },
-    // });
+    await ChemeCategory.findByIdAndUpdate(data.categoryId, {
+      $addToSet: {
+        Product: data._id,
+      },
+    });
     return res.json({
       message: "Thêm thanh công",
       data: data,

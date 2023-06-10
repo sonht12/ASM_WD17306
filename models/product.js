@@ -6,6 +6,8 @@ const ProductChema = new mongoose.Schema(
     content: String,
     description: String,
     image: String,
+    date:String,
+    category:String,
   },
   { timestamps: true, versionKey: false }
 );
