@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -24,13 +24,15 @@ export class SignupComponent {
     }
     return { mismatch: true }
   }
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
 
   }
   onHandleSubmit() {
     if (this.formSignup.valid) {
       this.auth.signup(this.formSignup.value).subscribe(data => {
         console.log(data);
+        this.router.navigate(['/signin']);
+
       })
     }
   }
