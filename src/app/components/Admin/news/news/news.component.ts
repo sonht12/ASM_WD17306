@@ -15,4 +15,9 @@ export class NewsComponent {
       
     })
   }
+  xoasp(id:any){
+    this.abc.deleteProduct(id).subscribe(()=> {
+      this.products=this.products.filter(item=>item._id !==id)
+    })
+  }
 }
