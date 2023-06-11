@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/interface/product';
 import { ProdutService } from 'src/app/services/produt.service';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
