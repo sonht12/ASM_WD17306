@@ -20,8 +20,8 @@ import { CommentComponent } from './components/Admin/comment/comment/comment.com
 import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
 import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
-
-
+import { NewDetailComponent } from './components/Client/new-detail/new-detail.component';
+import { Routes, RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +38,8 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
     NewsComponent,
     CommentComponent,
     NewsAddComponent,
-    NewsUpdateComponent
+    NewsUpdateComponent,
+    NewDetailComponent
 
   ],
   imports: [
