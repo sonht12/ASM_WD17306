@@ -1,8 +1,10 @@
+import { LayoutAdminComponent } from './../../layout-admin/layout-admin/layout-admin.component';
 import { Component } from '@angular/core';
 import { IProduct } from 'src/app/interface/product';
 import {FormBuilder,FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { ProdutService } from 'src/app/services/produt.service';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-news-add',
   templateUrl: './news-add.component.html',
@@ -52,8 +54,10 @@ export class NewsAddComponent {
 
 
 
-  constructor(private formBuilder : FormBuilder,
-    private productService:ProdutService
+  constructor(
+    private formBuilder : FormBuilder,
+    private productService:ProdutService,
+    private router: Router
     ){
   }
   productForm = this.formBuilder.group({
@@ -73,10 +77,11 @@ export class NewsAddComponent {
         content:this.productForm.value.content ||"",
         description:this.productForm.value.description ||"",
         image:this.productForm.value.image ||"",
-        date: this.productForm.value.date ? new Date(this.productForm.value.date).toISOString() : today.toLocaleDateString('en-US')
+        date: this.productForm.value.date ? new Date(this.productForm.value.date).toLocaleDateString('en-US') : today.toLocaleDateString('en-US')
       }
       this.productService.addProduct(product).subscribe(data =>{
         console.log(data);
+        this.router.navigate(['/admin']);
 
       })
     }

@@ -4,11 +4,14 @@ import { IProduct } from 'src/app/interface/product';
 import { ProdutService } from 'src/app/services/produt.service';
 import { ActivatedRoute} from '@angular/router';
 import { AngularEditorConfig } from '@kolkov/angular-editor'
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-news-update',
   templateUrl: './news-update.component.html',
   styleUrls: ['./news-update.component.css']
 })
+
 export class NewsUpdateComponent {
   editorConfig: AngularEditorConfig = {
     editable: true,
@@ -60,9 +63,11 @@ export class NewsUpdateComponent {
     date:['']
 
   })
-  constructor(private productService: ProdutService,
+  constructor(
+    private productService: ProdutService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
@@ -90,11 +95,13 @@ export class NewsUpdateComponent {
         content:this.productForm.value.content ||"",
         description:this.productForm.value.description ||"",
         image:this.productForm.value.image ||"",
-        date: this.productForm.value.date ? new Date(this.productForm.value.date).toISOString() : today.toLocaleDateString('en-US')
+        date: this.productForm.value.date ? new Date(this.productForm.value.date).toLocaleDateString('en-US') : today.toLocaleDateString('en-US')
       }
 
       this.productService.updateProduct(product).subscribe(data => {
         console.log(data)
+        this.router.navigate(['/admin']);
+
       })
     }
 
