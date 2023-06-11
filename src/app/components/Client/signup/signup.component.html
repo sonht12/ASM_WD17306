@@ -12,7 +12,7 @@
           formSignup.get('name')?.hasError('required')
         "
       >
-        name is Required
+      <span class="text-red-500 text-sm" >Nhập đúng tên đi</span>
       </div>
       <div
         *ngIf="
@@ -24,14 +24,14 @@
       <!-- email -->
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
         <input type="text" placeholder="Email" formControlName="email"
-      class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+      class="mt-5 w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
       <div
         *ngIf="
           formSignup.get('email')?.hasError('required') &&
           (formSignup.get('email')?.touched || formSignup.get('email')?.dirty)
         "
       >
-        Email is Required
+      <span class="text-red-500 text-sm" >Nhập email đi</span>
       </div>
       <div
         *ngIf="
@@ -39,12 +39,12 @@
           (formSignup.get('email')?.touched || formSignup.get('email')?.dirty)
         "
       >
-        Invalid email
+      <span class="text-red-500 text-sm" >Nhập đúng email đi</span>
       </div>
       </div>
 
-      <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
-        <input type="password" placeholder="Password" formControlName="password"   class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"  />
+      <div class="mt-5 w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
+        <input type="password" placeholder="Password" formControlName="password"   class="mt-5 w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"  />
       <div
         *ngIf="
           formSignup.get('password')?.hasError('required') &&
@@ -57,7 +57,7 @@
         type="password"
         placeholder="Confirm Password"
         formControlName="confirmPassword"
-        class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
+        class="mt-5 w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none"
       />
       <div
         *ngIf="
@@ -66,12 +66,12 @@
             formSignup.get('confirmPassword')?.dirty)
         "
       >
-        Password không trùng nhau
+      <span class="text-red-500 text-sm" >Password chưa giống nhau tý nào</span>
       </div>
       </div>
       
       
-      <button   class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">Đăng ký</button>
+      <button class=" mt-10 w-full transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">Đăng ký</button>
     </form>
 
   </section>

@@ -14,8 +14,8 @@
   <main
     class="mx-auto flex min-h-screen w-full items-center justify-center text-slate-400 bg-[url('https://images4.alphacoders.com/600/600528.png')] bg-cover bg-center">
     <!-- component -->
-    <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md">
-      <div class="text-center text-4xl font-medium italic text-black">Đăng nhập</div>
+    <section class="flex w-[30rem] flex-col space-y-10 bg-white px-10 py-10 rounded-lg shadow-md ">
+      <div class=" text-center text-4xl font-medium italic text-black">Đăng nhập</div>
       <form [formGroup]="formSignin" (ngSubmit)="onHandleSubmit()">
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
@@ -27,7 +27,7 @@
               (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
             "
           >
-            Email is Required
+            <span class="text-red-500 text-sm" >Khum bỏ trống nhaaa</span>
           </div>
           <div
             *ngIf="
@@ -35,13 +35,13 @@
               (formSignin.get('email')?.touched || formSignin.get('email')?.dirty)
             "
           >
-            Invalid email
+          <span class="text-red-500 text-sm" >Nhập đúng email đi</span>
           </div>
       </div>
 
       <div class="w-full transform border-b-2 bg-transparent text-black text-lg duration-300 focus-within:border-indigo-500">
         <input type="password" placeholder="Password" formControlName="password" 
-          class="w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
+          class="mt-10 w-full border-none bg-transparent outline-none placeholder:italic focus:outline-none" />
           <div
           *ngIf="
           formSignin.get('password')?.hasError('required') &&
@@ -50,7 +50,7 @@
         ></div>
       </div>
 
-      <button type="submit" class="transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
+      <button type="submit" class="mt-10 w-full transform rounded-sm bg-indigo-500 py-2 font-bold duration-300 text-white hover:bg-indigo-700">
        Đăng nhập
       </button>
     </form>
