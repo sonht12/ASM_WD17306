@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { IHighlight } from 'src/app/interface/highlight';
 import { HighlightService } from 'src/app/services/highlight.service';
 @Component({
-  selector: 'app-highlight',
-  templateUrl: './highlight.component.html',
-  styleUrls: ['./highlight.component.css']
+  selector: 'app-highlight-admin',
+  templateUrl: './highlight-admin.component.html',
+  styleUrls: ['./highlight-admin.component.css']
 })
-export class HighlightComponent {
+export class HighlightAdminComponent {
   highlights!: IHighlight[];
   constructor(private HighlightService:HighlightService){
     this.HighlightService.getHighlights().subscribe(data => {
@@ -14,4 +14,12 @@ export class HighlightComponent {
       console.log(this.highlights);
     });
   }
+  removeItem(id: any) {
+    this.HighlightService.deleteHighlight(id).subscribe(() => {
+      this.highlights = this.highlights.filter(item => item._id !== id)
+    }, (error) => {
+      console.log(error.message)
+    })
+  }
+
 }

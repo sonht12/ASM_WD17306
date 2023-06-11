@@ -3,67 +3,19 @@
     <h1 class="text-white text-2xl font-bold">Highlights</h1>
   </div>
 </header>
-
 <main class="container mx-auto px-4 py-8  h-[1000px]">
-  <div class="grid grid-cols-1  md:grid-cols-3 gap-8 ">
-    <!-- Categories Sidebar -->
-    <div class="col-span-1 md:col-span-1 lg:col-span-1  py-4 px-14 ">
-      <ul class="text-gray-700">
-        <li class="mb-2">
-          <a href="#" class="flex items-center text-sm font-medium  border bg-white border-opacity hover:bg-gradient-to-r from-black to-white hover:text-white w-full px-4 py-2 rounded">
-            <span class="mr-2 material-icons text-gray-400"></span>
-            LIÊN MINH HUYỀN THOẠI
-          </a>
-        </li>
-        <li class="mb-2">
-          <a href="#" class="flex items-center text-sm font-medium  border bg-white border-opacity hover:bg-gradient-to-r from-black to-white hover:text-white w-full px-4 py-2 rounded">
-            <span class="mr-2 material-icons text-gray-400"></span>
-            CSGO
-          </a>
-        </li>
-        <li class="mb-2">
-          <a href="#" class="flex items-center text-sm font-medium  border bg-white border-opacity hover:bg-gradient-to-r from-black to-white hover:text-white w-full px-4 py-2 rounded">
-            <span class="mr-2 material-icons text-gray-400"></span>
-            FIFA
-          </a>
-        </li>
-        <li class="mb-2">
-           <a href="#" class="flex items-center text-sm font-medium  border bg-white border-opacity hover:bg-gradient-to-r from-black to-white hover:text-white w-full px-4 py-2 rounded">
-            <span class="mr-2 material-icons text-gray-400"></span>
-            ĐẾ CHẾ
-          </a>
-        </li>
-
-      </ul>
-    </div>
-
-    <!-- Video Highlight Container -->
-    <div class="col-span-1 md:col-span-2 lg:col-span-2">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Video Highlight Item -->
-        <div class="flex justify-center items-center">
-          <div class="max-w-md bg-white rounded overflow-hidden shadow-lg">
-            <div class="aspect-w-16 aspect-h-9">
-              <img src="https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt1be3ec99f5a2ded0/645009ac66eb711145c1fdf3/LoL_IS_YT_Theme_Video_JDiaz_V1.jpg" alt="">
-            </div>
-            <div class="p-4">
-              <h2 class="text-2xl font-semibold mb-2">Video Title</h2>
-              <p class="text-gray-700 mb-4">Video description goes here.</p>
-              <div class="flex items-center">
-                <div class="w-12 h-12 rounded-full overflow-hidden">
-                  <img src="https://via.placeholder.com/150" alt="Channel Avatar">
-                </div>
-                <div class="ml-2">
-                  <h3 class="text-lg font-semibold">Channel Name</h3>
-                </div>
-              </div>
-            </div>
-          </div>
+  <div class="container mx-auto px-4">
+    <div class="flex flex-col px-[100px]">
+      <div *ngFor="let highlight of highlights; index as i" class="bg-white shadow-md rounded-lg ">
+        <div>
+          <iframe width="560" height="315" src="{{ highlight.Video }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-
-        <!-- Repeat the above video highlight item for other games -->
-
-      </div>
+        <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2"> {{ highlight.name }}</h3>
+            <p class="text-gray-600">{{ highlight.description }}</p>
+        </div>
+    </div>
+      <!-- Add more video cards here as needed -->
     </div>
   </div>
 </main>

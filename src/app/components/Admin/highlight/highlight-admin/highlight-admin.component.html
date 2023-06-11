@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin List Sản phẩm</title>
+</head>
+<body>
+    <h1 class="text-3xl font-bold my-4">Danh sách Highlight</h1>
+    <a href="/admin/highlight/add">Thêm</a>
+    <table class="w-full border-collapse border-black">
+        <thead>
+            <tr class="">
+                <th class="py-2 px-4 bg-green-500 text-white border-2 border-black">Name</th>
+                <th class="py-2 px-4 bg-green-500 text-white border-2 border-black">Video</th>
+                <th class="py-2 px-4 bg-green-500 text-white border-2 border-black">Mô tả</th>
+                <th class="py-2 px-4 bg-green-500 text-white border-2 border-black">Chức năng</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr
+                *ngFor="let highlight of highlights; let i = index" 
+            class="bg-gray-100 border-2 border-black ">
+            
+                <td class="py-2 px-4 border-2 border-black">{{ highlight.name }}</td>
+                <td class="py-2 px-4 border-2 border-black">
+                    <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <p>{{ highlight.Video }}</p>
+                </td>
+                <td class="py-2 px-4 border-2 border-black">{{ highlight.description }}</td>
+                <td class=" px-4 py-2 border-2 border-black">
+                    <a routerLink="highlight/update/{{ highlight._id}}" class="bg-blue-500 hover:bg-blue-700 text-white ml-8 px-[10px]  rounded">Sua</a>
+                    <button (click)="removeItem(highlight._id)" class="bg-blue-500 hover:bg-blue-700 text-white ml-8 px-[10px]  rounded">Xóa</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
