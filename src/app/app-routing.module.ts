@@ -16,6 +16,7 @@ import { NewsComponent } from './components/Admin/news/news/news.component';
 import { NewsAddComponent } from './components/Admin/news/news-add/news-add.component';
 import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
 import { authGuard } from './services/auth.guard';
+import { NewDetailComponent } from './components/Client/new-detail/new-detail.component';
 
 const routes: Routes = [
   { path: '', children:[
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: '', component: HomePageComponent },
       { path: 'highlight', component: HighlightComponent },
       { path: 'tintuc', component: TinTucComponent },
+      {path:'new/:id',component:NewDetailComponent}
     ]},
   ]
 },
@@ -33,7 +35,8 @@ const routes: Routes = [
     {path: 'user/add', component: UserAddComponent},
     {path: 'user/edit', component: UserEditComponent},
     {path: 'news/add', component: NewsAddComponent},
-    {path: 'news/edit/:id', component:NewsUpdateComponent}
+    {path: 'news/edit/:id', component:NewsUpdateComponent},
+ 
   ]},
   { path: 'signup', component: SignupComponent },
   { path: 'signin', component: SigninComponent },
