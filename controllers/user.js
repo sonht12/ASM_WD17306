@@ -72,3 +72,37 @@ export const Login = async (req, res) => {
     });
   }
 };
+export const GetOneUser = async (req, res, next) => {
+  try {
+    const data = await UserCheme.findById(req.params.id);
+    return res.json(data);
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+    });
+  }
+};
+export const GetAllUser = async (req, res, next) => {
+  try {
+    const data = await UserCheme.find();
+    return res.json(data);
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+      
+    });
+  }
+};
+export const DeleteUser = async (req, res, next) => {
+  try {
+    const data = await UserCheme.findByIdAndDelete({ _id: req.params.id });
+    return res.json({
+      message: "Xóa thành công",
+      data: data,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+    });
+  }
+};
