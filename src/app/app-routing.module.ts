@@ -17,7 +17,9 @@ import { NewsAddComponent } from './components/Admin/news/news-add/news-add.comp
 import { NewsUpdateComponent } from './components/Admin/news/news-update/news-update.component';
 import { authGuard } from './services/auth.guard';
 import { NewDetailComponent } from './components/Client/new-detail/new-detail.component';
-
+import { HighlightAddComponent } from './components/Admin/highlight/highlight-add/highlight-add.component';
+import { UpdateHighlightComponent } from './components/Admin/highlight/update-highlight/update-highlight.component';
+import { HighlightAdminComponent } from './components/Admin/highlight/highlight-admin/highlight-admin.component';
 const routes: Routes = [
   { path: '', children:[
     {path:'', component:PageComponent , children:[
@@ -36,6 +38,9 @@ const routes: Routes = [
     {path: 'user/edit', component: UserEditComponent},
     {path: 'news/add', component: NewsAddComponent},
     {path: 'news/edit/:id', component:NewsUpdateComponent},
+    {path: 'highlight', component:  HighlightAdminComponent},
+    {path: 'highlight/add', component: HighlightAddComponent },
+    {path: 'highlight/update/:id', component: UpdateHighlightComponent },
  
   ]},
   { path: 'signup', component: SignupComponent },

@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { ListUserComponent } from './components/Admin/user/list-user/list-user.component';
 import { UserAddComponent } from './components/Admin/user/user-add/user-add.component';
 import { UserEditComponent } from './components/Admin/user/user-edit/user-edit.component';
@@ -22,6 +23,9 @@ import { NewsUpdateComponent } from './components/Admin/news/news-update/news-up
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { NewDetailComponent } from './components/Client/new-detail/new-detail.component';
 import { Routes, RouterModule } from '@angular/router';
+import { HighlightAddComponent } from './components/Admin/highlight/highlight-add/highlight-add.component';
+import { UpdateHighlightComponent } from './components/Admin/highlight/update-highlight/update-highlight.component';
+import { HighlightAdminComponent } from './components/Admin/highlight/highlight-admin/highlight-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +43,10 @@ import { Routes, RouterModule } from '@angular/router';
     CommentComponent,
     NewsAddComponent,
     NewsUpdateComponent,
-    NewDetailComponent
+    NewDetailComponent,
+    HighlightAddComponent,
+    UpdateHighlightComponent,
+    HighlightAdminComponent
 
   ],
   imports: [

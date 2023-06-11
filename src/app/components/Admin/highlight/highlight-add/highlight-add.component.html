@@ -1,0 +1,26 @@
+<div class="max-w-md mx-auto bg-white shadow p-8 mt-4 border-black ">
+    <h2 class="text-xl font-bold mb-4">Thêm Highlight</h2>
+    <form class="border-black form-group" [formGroup]="highlightForm" (ngSubmit)="onHandleSubmit()">
+      <div class="mb-4">
+        <label for="name" class="block text-sm font-medium text-gray-700">Tên Highlight</label>
+        <input type="text" formControlName="name"   class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Nhập tên sản phẩm" required>
+      </div>
+      <div class="mb-4">
+        <label for="videoLink" class="block text-sm font-medium text-gray-700">Link video</label>
+        <input type="text" formControlName="Video" id="videoLink"  class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Nhập link video" required>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-sm font-medium text-gray-700">Mô tả</label>
+        <textarea id="description"formControlName="description"  rows="4" class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Nhập mô tả" required></textarea>
+      </div>
+      <div class="flex justify-end">
+        <button type="submit" [disabled]="!highlightForm.valid" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">Thêm</button>
+      </div>
+    </form>
+  </div>
+  
+  
+  
+  
+  
+  
