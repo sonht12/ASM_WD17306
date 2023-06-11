@@ -78,3 +78,16 @@ export const Update = async (req, res, next) => {
     });
   }
 };
+export const Delete = async (req, res, next) => {
+  try {
+    const data = await ProductChema.findByIdAndDelete({ _id: req.params.id });
+    return res.json({
+      message: "Xóa thành công",
+      data: data,
+    });
+  } catch (error) {
+    return res.status(401).json({
+      message: error.message,
+    });
+  }
+};
