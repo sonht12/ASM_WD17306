@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IHighlight } from 'src/app/interface/highlight';
 import { HighlightService } from 'src/app/services/highlight.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-update-highlight',
   templateUrl: './update-highlight.component.html',
@@ -18,7 +19,8 @@ export class UpdateHighlightComponent {
   constructor(
     private HighlightService: HighlightService,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private Router: Router
   ) {
     this.route.paramMap.subscribe(param => {
       const id = param.get('id');
@@ -45,7 +47,9 @@ export class UpdateHighlightComponent {
       }
 
       this.HighlightService.updateHighlight(highlight).subscribe(data => {
-        console.log(data)
+        console.log(data); 
+        this.Router.navigate(['/admin/highlight']);
+
       })
     }
 
