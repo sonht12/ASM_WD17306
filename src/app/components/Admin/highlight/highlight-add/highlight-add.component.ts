@@ -2,14 +2,18 @@ import { Component } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HighlightService } from 'src/app/services/highlight.service';
 import { IHighlight } from 'src/app/interface/highlight';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-highlight-add',
   templateUrl: './highlight-add.component.html',
   styleUrls: ['./highlight-add.component.css']
 })
 export class HighlightAddComponent {
-  constructor(private formBuilder: FormBuilder,
-    private HighlightService: HighlightService) {
+  constructor(
+    private formBuilder : FormBuilder,
+    private HighlightService:HighlightService,
+    private Router: Router
+    ) {
 
   }
   highlightForm = this.formBuilder.group({
@@ -26,8 +30,7 @@ export class HighlightAddComponent {
       }
       this.HighlightService.addHighlight(highlight).subscribe(data => {
         console.log(data)
-        
-        
+        this.Router.navigate(['/admin/highlight']);
       })
     }
   }

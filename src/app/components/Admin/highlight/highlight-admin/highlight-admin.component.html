@@ -28,7 +28,7 @@
                 </td>
                 <td class="py-2 px-4 border-2 border-black">{{ highlight.description }}</td>
                 <td class=" px-4 py-2 border-2 border-black">
-                    <a routerLink="highlight/update/{{ highlight._id}}" class="bg-blue-500 hover:bg-blue-700 text-white ml-8 px-[10px]  rounded">Sua</a>
+                    <a  routerLink="update/{{highlight._id}}" class="bg-blue-500 hover:bg-blue-700 text-white ml-8 px-[10px]  rounded"  href="">Sửa</a>
                     <button (click)="removeItem(highlight._id)" class="bg-blue-500 hover:bg-blue-700 text-white ml-8 px-[10px]  rounded">Xóa</button>
                 </td>
             </tr>
